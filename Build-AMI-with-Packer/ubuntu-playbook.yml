@@ -1,0 +1,16 @@
+---
+- hosts: all #When ansible controller is connecting to the same machine, we need to mention all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: latest
+
+    - name: Install docker
+      apt:
+        name: docker
+        update_cache: yes
+        state: latest
